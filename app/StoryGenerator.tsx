@@ -59,7 +59,7 @@ const StoryGenerator = () => {
       Alert.alert("Success", "Story saved successfully!");
       setPrompt("");
       setStory("");
-      router.push("/");
+      router.back();
     } catch (error) {
       Alert.alert("Error", "Failed to save story. Please try again.");
       console.error("Error saving story:", error);
@@ -73,7 +73,7 @@ const StoryGenerator = () => {
         className="flex-1"
       >
         {/* Header Section */}
-        <View className="px-4 pb-6">
+        <View className="px-4 pb-6 items-center">
           <Text className="text-4xl font-bold text-white mb-2">
             Story Generator
           </Text>
