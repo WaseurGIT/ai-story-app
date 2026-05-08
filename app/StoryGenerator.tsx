@@ -13,6 +13,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const StoryGenerator = () => {
+  const API_URL = process.env.EXPO_PUBLIC_API_URL;
+  console.log("API URL:", API_URL);
   const [prompt, setPrompt] = useState("");
   const [story, setStory] = useState("");
   const [loading, setLoading] = useState(false);
@@ -24,16 +26,13 @@ const StoryGenerator = () => {
     }
     try {
       setLoading(true);
-      const response = await fetch(
-        `${process.env.EXPO_PUBLIC_API_URL}/generate-story`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt }),
+      const response = await fetch(`${API_URL}/generate-story`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      );
+        body: JSON.stringify({ prompt }),
+      });
       const data = await response.json();
       setStory(data.story);
       return data.story;
