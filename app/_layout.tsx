@@ -1,11 +1,11 @@
 import { Stack } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import "../global.css";
-import { StatusBar } from "react-native";
 
 export default function RootLayout() {
   return (
     <Stack>
-      <StatusBar barStyle="light-content" backgroundColor="#1e293b" />
+      <StatusBar style="auto" hidden={false} />
       <Stack.Screen
         name="index"
         options={{
@@ -13,14 +13,14 @@ export default function RootLayout() {
         }}
       />
       <Stack.Screen
-        name="/StoryGenerator"
+        name="StoryGenerator"
         options={{
           headerTitle: "Story Generator",
           animation: "slide_from_right",
         }}
       />
       <Stack.Screen
-        name="/ReadStory"
+        name="ReadStory"
         options={{
           headerTitle: "Read Story",
           animation: "slide_from_right",
